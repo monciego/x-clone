@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
-    Route::resource('posts', PostController::class)->only('index', 'store');
+    Route::resource('posts', PostController::class)->only('index', 'store', 'edit', 'update');
 });
 
 Route::middleware('auth')->group(function () {
